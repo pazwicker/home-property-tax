@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hcad-etl"
+version = "0.1.0"
+description = "HCAD → BigQuery ELT pipeline for Harris County property tax data"
+requires-python = ">=3.11"
+dependencies = [
+    "google-cloud-bigquery[pandas]>=3.11",
+    "db-dtypes>=1.1",
+    "pandas>=2.0",
+    "requests>=2.31",
+]
+
+[project.scripts]
+hcad-etl = "hcad_etl.pipeline:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
